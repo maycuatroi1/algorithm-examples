@@ -101,16 +101,10 @@ if __name__ == "__main__":
 
     dist, prev = dijkstra(graph, 'A')
 
-    print(f"\nShortest distances from A:")
-    print(f"  {'Node':<6} {'Dist':<6} {'Path'}")
-    print(f"  {'─'*6} {'─'*6} {'─'*20}")
+    print(f"\nShortest paths from A to every node:")
+    print(f"  {'To':<6} {'Dist':<6} {'Full path from A'}")
+    print(f"  {'─'*6} {'─'*6} {'─'*25}")
     for node in sorted(dist):
         path = reconstruct_path(prev, node)
         path_str = " → ".join(path)
         print(f"  {node:<6} {dist[node]:<6} {path_str}")
-
-    # Show shortest path tree
-    print(f"\nShortest Path Tree edges:")
-    for node in sorted(prev):
-        if prev[node] is not None:
-            print(f"  {prev[node]} ─── {node}")
